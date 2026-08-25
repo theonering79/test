@@ -15,7 +15,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # 3. Node.js 환경 설정
+    # 3. Node.js 환경 설정 (node-version 오타 수정 완료)
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
