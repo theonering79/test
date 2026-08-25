@@ -320,14 +320,6 @@
         "com.figma.hiddenFromPublishing": true
       }
     },
-    "tight": {
-      "$type": "number",
-      "$value": -0.20000000298023224,
-      "$extensions": {
-        "com.figma.variableId": "VariableID:6:281",
-        "com.figma.hiddenFromPublishing": true
-      }
-    },
     "normal": {
       "$type": "number",
       "$value": 0,
