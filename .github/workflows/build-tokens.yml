@@ -19,7 +19,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-node: '20'
+        node-version: '20'
         cache: 'npm'
 
     # 4. 의존성 패키지 설치 (style-dictionary 포함)
@@ -34,7 +34,7 @@ jobs:
     - name: Commit and Push compiled CSS
       run: |
         git config --global user.name "github-actions[bot]"
-        git config --global user.name "github-actions[bot]@://github.com"
+        git config --global user.email "github-actions[bot]@://github.com"
         
         # 변경된 변환 파일(dist/css/variables.css)이 있는지 확인
         git add dist/css/variables.css
