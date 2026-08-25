@@ -39,7 +39,7 @@
     }
   },
   "font-size": {
-    "300": {
+    "200": {
       "$type": "number",
       "$value": 12,
       "$extensions": {
