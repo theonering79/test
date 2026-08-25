@@ -1,0 +1,12 @@
+{
+  "name": "coding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "build-tokens": "style-dictionary build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
