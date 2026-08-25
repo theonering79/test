@@ -17,7 +17,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '22'
+        node-version: '20'
 
     # 안전하게 깃허브 서버에서 의존성을 직접 설치하도록 명령어를 변경했습니다.
     - name: Install dependencies
