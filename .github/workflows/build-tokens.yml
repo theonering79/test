@@ -1,6 +1,5 @@
 name: Build and Deploy Design Tokens
 
-# 1. 트리거 조건: tokens 폴더 내부의 JSON 파일이 변경되어 Push되었을 때 실행
 on:
   push:
     paths:
@@ -11,35 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 2. 리포지토리 코드 가져오기
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # 3. Node.js 환경 설정 (node-version 오타 수정 완료)
+    # 내 컴퓨터와 똑같이 v22로 버전을 맞추고, 에러를 유발하던 cache 옵션은 삭제했습니다.
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20'
-        cache: 'npm'
+        node-version: '22'
 
-    # 4. 의존성 패키지 설치 (style-dictionary 포함)
+    # 안전하게 깃허브 서버에서 의존성을 직접 설치하도록 명령어를 변경했습니다.
     - name: Install dependencies
-      run: npm ci
+      run: npm install
 
-    # 5. 디자인 토큰 변환 스크립트 실행 (JSON -> CSS)
     - name: Build tokens
       run: npm run build-tokens
 
-    # 6. 자동 생성된 CSS 파일을 리포지토리에 다시 커밋 및 푸시
     - name: Commit and Push compiled CSS
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@://github.com"
         
-        # 변경된 변환 파일(dist/css/variables.css)이 있는지 확인
         git add dist/css/variables.css
         
-        # 변경사항이 있을 때만 커밋 및 푸시 진행
         if ! git diff --cached --exit-code; then
           git commit -m "chore: 자동 생성된 디자인 토큰 CSS 반영 [skip ci]"
           git push
